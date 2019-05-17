@@ -1,0 +1,4 @@
+node_modules
+secrets
+client/dist/*.js
+.vscode

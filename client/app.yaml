@@ -1,0 +1,29 @@
+runtime: nodejs10
+service: default
+project: starter-kit
+skip_files:
+- node_modules/
+- tests/
+- api/
+- webpack.config.js
+- babel.config.js
+- README.md
+- ^\..*
+
+handlers:
+- url: /_nuxt
+  static_dir: .nuxt/dist/client
+  secure: always
+
+- url: /(.*\.(gif|png|jpg|ico|txt))$
+  static_files: client/public/\1
+  upload: client/public/.*\.(gif|png|jpg|ico|txt)$
+  secure: always
+
+- url: /.*
+  script: auto
+  secure: always
+
+env_variables:
+  HOST: '0.0.0.0'
+  NODE_ENV: 'production'
