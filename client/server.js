@@ -34,11 +34,6 @@ if (process.env.NODE_ENV === 'development') {
   devDServer(app)
 }
 
-// Helmet helps you secure your Express apps by setting various HTTP headers.
-// https://helmetjs.github.io/
-const helmet = require('helmet')
-app.use(helmet())
-
 // Handle requests for static files
 const path = require('path')
 app.use(express.static(path.join(__dirname, 'public')))
